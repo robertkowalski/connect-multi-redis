@@ -7,9 +7,14 @@
   "scripts": {
     "test": "make"
   },
+  "dependencies": {
+    "connect-redis": "1.4.5"
+  },
   "devDependencies": {
     "chai": "1.4.x",
-    "mocha": "1.8.1"
+    "mocha": "1.8.1",
+    "connect": "*",
+    "supertest": "0.4.2"
   },
   "repository": "",
   "keywords": [
