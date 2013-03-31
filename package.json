@@ -1,0 +1,22 @@
+{
+  "name": "connect-multiple-redis",
+  "version": "0.0.0",
+  "author": "Robert Kowalski <rok@kowalski.gd>",
+  "description": "Manages multiple redis hosts for sessions",
+  "main": "index.js",
+  "scripts": {
+    "test": "make"
+  },
+  "devDependencies": {
+    "chai": "1.4.x",
+    "mocha": "1.8.1"
+  },
+  "repository": "",
+  "keywords": [
+    "redis",
+    "connect",
+    "express",
+    "session"
+  ],
+  "license": "BSD"
+}
