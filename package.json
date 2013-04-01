@@ -1,6 +1,6 @@
 {
-  "name": "connect-multiple-redis",
-  "version": "0.0.0",
+  "name": "connect-multi-redis",
+  "version": "0.1.0",
   "author": "Robert Kowalski <rok@kowalski.gd>",
   "description": "Manages multiple redis hosts for sessions",
   "main": "index.js",

@@ -1,3 +1,3 @@
 module.exports = process.env.TEST_COV
-  ? require('./lib-cov/connect-multiple-redis')
-  : require('./lib/connect-multiple-redis');
+  ? require('./lib-cov/connect-multi-redis')
+  : require('./lib/connect-multi-redis');
