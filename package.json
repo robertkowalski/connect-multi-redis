@@ -23,5 +23,5 @@
     "express",
     "session"
   ],
-  "license": "BSD"
+  "license": "MIT"
 }
