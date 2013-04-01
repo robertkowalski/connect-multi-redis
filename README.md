@@ -1,6 +1,8 @@
+[![Build Status](https://travis-ci.org/robertkowalski/javascriptjob.de.png?branch=master)](https://travis-ci.org/robertkowalski/connect-multi-redis)
+
 ## connect-multi-redis
 
-Manages multiple redis host as fallbacks for sessions.
+Manages multiple redis host fallbacks for sessions.
 
 Once the connection to the current host fails, it choses another connected host, preventing the app from crashing.
 
@@ -10,7 +12,7 @@ If no redis hosts are connected it degrades to the builtin MemoryStore.
 
 Place the middleware just after the cookieParser and before the session-middleware of Connect or Express
 
-Connect:
+#### Connect:
 
 ```javascript
 
@@ -53,6 +55,6 @@ var server = http.createServer(app).listen(3000);
 
 ```
 
-Express:
+#### Express:
 
 TBD
