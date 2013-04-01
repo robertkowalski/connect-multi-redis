@@ -8,12 +8,12 @@
     "test": "make"
   },
   "dependencies": {
-    "connect-redis": "1.4.5"
+    "connect-redis": "1.4.5",
+    "connect": "2.7.3"
   },
   "devDependencies": {
     "chai": "1.4.x",
     "mocha": "1.8.1",
-    "connect": "*",
     "supertest": "0.4.2"
   },
   "repository": "",
