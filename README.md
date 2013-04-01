@@ -10,7 +10,7 @@ If no redis hosts are connected it degrades to the builtin MemoryStore.
 
 ### Usage:
 
-Place the middleware just after the cookieParser and before the session-middleware of Connect or Express
+Place the middleware before the session-middleware of Connect or Express
 
 #### Connect:
 
@@ -57,4 +57,54 @@ var server = http.createServer(app).listen(3000);
 
 #### Express:
 
-TBD
+```javascript
+
+var app = require('express');
+var http = require('http');
+var RedisStore = require('connect-redis')(express);
+
+var options = {
+  hosts: [
+    new RedisStore({
+      host: '127.0.0.1',
+      port: 63793,
+      maxAge: null
+    }),
+    new RedisStore({
+      host: '127.0.0.1',
+      port: 6379,
+      maxAge: null
+    }),
+  ],
+  session_secret: 'foo',
+  cookie: {
+    maxAge: null
+  }
+};
+
+var multipleRedisSessions = require('connect-multi-redis')(app, express.session, options);
+
+var app = express();
+
+app.configure(function() {
+  app.set('port', process.env.PORT || 3000);
+  app.set('views', __dirname + '/views');
+  app.set('view engine', 'jade');
+  app.use(express.favicon());
+  app.use(express.logger('dev'));
+  app.use(express.bodyParser());
+  app.use(express.cookieParser(env.COOKIE_SECRET || 'lolcat'));
+  app.use(multiRedis());
+  app.use(express.session({store: options.hosts[0], secret: env.SESSION_SECRET || 'lolcat'}));
+  app.use(app.router);
+});
+
+app.get('/', function(req, res){
+  res.send('hello world');
+});
+
+http.createServer(app).listen(app.get('port'), function() {
+  console.log("Express server listening on port " + app.get('port'));
+});
+
+```
