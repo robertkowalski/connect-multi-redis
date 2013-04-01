@@ -16,7 +16,13 @@
     "mocha": "1.8.1",
     "supertest": "0.4.2"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/robertkowalski/connect-multi-redis"
+  },
+  "bugs": {
+    "url": "https://github.com/robertkowalski/connect-multi-redis/issues"
+  },
   "keywords": [
     "redis",
     "connect",
