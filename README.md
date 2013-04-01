@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/robertkowalski/javascriptjob.de.png?branch=master)](https://travis-ci.org/robertkowalski/connect-multi-redis)
+[![Build Status](https://travis-ci.org/robertkowalski/connect-multi-redis.png?branch=master)](https://travis-ci.org/robertkowalski/connect-multi-redis)
 
 ## connect-multi-redis
 
