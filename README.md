@@ -8,6 +8,8 @@ Once the connection to the current host fails, it choses another connected host,
 
 If no redis hosts are connected it degrades to the builtin MemoryStore.
 
+It also uses the MemoryStore if no config was provided.
+
 ### Usage:
 
 Place the middleware before the session-middleware of Connect or Express
@@ -41,10 +43,10 @@ var options = {
 
 var app = connect();
 
-var multipleRedisSessions = require('connect-multi-redis')(app, connect.session, options);
+var multipleRedisSessions = require('connect-multi-redis')(app, connect.session);
 
 app
-  .use(connect.cookieParser())
+  .use(connect.cookieParser(options))
   .use(multipleRedisSessions())
   .use(connect.session({ store: options.hosts[0], secret: options.session_secret }))
   .use(function(req, res) {
@@ -82,7 +84,7 @@ var options = {
   }
 };
 
-var multipleRedisSessions = require('connect-multi-redis')(app, express.session, options);
+var multipleRedisSessions = require('connect-multi-redis')(app, express.session);
 
 var app = express();
 
@@ -94,8 +96,8 @@ app.configure(function() {
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.cookieParser(env.COOKIE_SECRET || 'lolcat'));
-  app.use(multiRedis());
-  app.use(express.session({store: options.hosts[0], secret: env.SESSION_SECRET || 'lolcat'}));
+  app.use(multiRedis(options));
+  app.use(express.session({ store: options.hosts[0], secret: env.SESSION_SECRET || 'lolcat' }));
   app.use(app.router);
 });
 

@@ -28,11 +28,11 @@ var app = connect();
 describe('Middleware', function(done) {
 
   it('integrates in connect and handles the session host outage with the MemoryStore', function(done) {
-    var middleware = require('../')(app, connect.session, options);
+    var middleware = require('../')(app, connect.session);
 
     app
       .use(connect.cookieParser())
-      .use(middleware())
+      .use(middleware(options))
       .use(connect.session({ store: options.hosts[0], secret: options.session_secret }))
       .use(function(req, res) {
         req.session.count = 1;
@@ -51,11 +51,11 @@ describe('Middleware', function(done) {
   });
 
   it('integrates in connect and works without a config', function(done) {
-    var middleware = require('../')(app, connect.session, undefined);
+    var middleware = require('../')(app, connect.session);
 
     app
       .use(connect.cookieParser())
-      .use(middleware())
+      .use(middleware(undefined))
       .use(connect.session({ store: options.hosts[0], secret: options.session_secret }))
       .use(function(req, res) {
         req.session.count = 1;
